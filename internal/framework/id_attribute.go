@@ -15,3 +15,13 @@ func IDAttribute() tfsdk.Attribute {
 		},
 	}
 }
+
+func ARNAttribute() tfsdk.Attribute {
+	return tfsdk.Attribute{
+		Type:     types.StringType,
+		Computed: true,
+		PlanModifiers: []tfsdk.AttributePlanModifier{
+			resource.UseStateForUnknown(),
+		},
+	}
+}
